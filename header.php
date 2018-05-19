@@ -31,7 +31,6 @@
               <ul class="dropdown-menu">
                 <li><a href="#intro" class="page-scroll">MOTTO</a></li>
                 <li><a href="#intro" class="page-scroll">PANCA JIWA</a></li>
-
               </ul>
             </li>
             <li><a href="#berita" class="page-scroll">BERITA</a></li>
