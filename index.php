@@ -116,31 +116,33 @@
       <div id="agenda">
         <h2 class="text-center">AGENDA</h2>
         <ul class="list-agenda">
-          <li class="item-agenda">
-            <h4><a href="#">AGENDA SATU</a></h4>
-            <p>01 Januari 2018 / 10:00 - Selesai</p>
-            <p>Aula Sekolah</p>
+          <?php
+          $query = new WP_Query( array(
+            'category_name' => 'Agenda' ,
+            'posts_per_page' => 5,
+          ) );
+          if( $query->have_posts() ):
+            while( $query->have_posts() ): $query->the_post();
+            $PostId = get_the_ID();
+            $Waktu  = get_post_meta($PostId, 'Waktu', true);
+            $Tempat = get_post_meta($PostId, 'Tempat', true);
+          ?>
+          <li class="item-artikel">
+            <h4><a href="<?= the_permalink() ?>"><?= the_title() ?></a></h4>
+            <p><?= $Waktu ?></p>
+            <p><?= $Tempat ?></p>
           </li>
-          <li class="item-agenda">
-            <h4><a href="#">AGENDA DUA</a></h4>
-            <p>01 Januari 2018 / 10:00 - Selesai</p>
-            <p>Aula Sekolah</p>
+          <?php
+            endwhile;
+          else:
+          ?>
+          <li class="item-artikel">
+            <h4><a href="#"></a></h4>
+            <p>Tidak Ada Agenda Terbaru</p>
           </li>
-          <li class="item-agenda">
-            <h4><a href="#">AGENDA TIGA</a></h4>
-            <p>01 Januari 2018 / 10:00 - Selesai</p>
-            <p>Aula Sekolah</p>
-          </li>
-          <li class="item-agenda">
-            <h4><a href="#">AGENDA EMPAT</a></h4>
-            <p>01 Januari 2018 / 10:00 - Selesai</p>
-            <p>Aula Sekolah</p>
-          </li>
-          <li class="item-agenda">
-            <h4><a href="#">AGENDA LIMA</a></h4>
-            <p>01 Januari 2018 / 10:00 - Selesai</p>
-            <p>Aula Sekolah</p>
-          </li>
+          <?php
+          endif;
+          ?>
           <a class="show-button" href="#">Lihat semua agenda...</a>
         </ul>
       </div>
