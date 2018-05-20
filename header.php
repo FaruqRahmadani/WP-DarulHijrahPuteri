@@ -25,24 +25,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html" class="page-scroll">BERANDA</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFIL <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#intro" class="page-scroll">MOTTO</a></li>
-                <li><a href="#intro" class="page-scroll">PANCA JIWA</a></li>
-              </ul>
-            </li>
-            <li><a href="#berita" class="page-scroll">BERITA</a></li>
-            <li><a href="#agenda" class="page-scroll">AGENDA</a></li>
-            <li><a href="#pengumuman" class="page-scroll">PENGUMUMAN</a></li>
-            <li><a href="#">GALERI</a></li>
-            <li><a href="#kontak" class="page-scroll">KONTAK</a></li>
-            <li>
-              <form id="search">
-                <input type="search" placeholder="cari..." style="text-align: center;">
-              </form>
-            </li>
+            <?= main_menu() ?>
           </ul>
         </div>
       </div>
