@@ -85,18 +85,29 @@
       <div id="berita">
         <h2 class="text-center">BERITA TERBARU</h2>
         <ul class="list-artikel">
+          <?php
+          $query = new WP_Query( array(
+            'category_name' => 'Berita' ,
+            'posts_per_page' => 3,
+          ) );
+          if( $query->have_posts() ):
+            while( $query->have_posts() ): $query->the_post();
+          ?>
           <li class="item-artikel">
-            <h4><a href="#">BERITA SATU</a></h4>
-            <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
+            <h4><a href="<?= the_permalink() ?>"><?= the_title() ?></a></h4>
+            <p><?= the_excerpt() ?></p>
           </li>
+          <?php
+            endwhile;
+          else:
+          ?>
           <li class="item-artikel">
-            <h4><a href="#">BERITA DUA</a></h4>
-            <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
+            <h4><a href="#"></a></h4>
+            <p>Tidak Ada Berita Terbaru</p>
           </li>
-          <li class="item-artikel">
-            <h4><a href="#">BERITA TIGA</a></h4>
-            <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
-          </li>
+          <?php
+          endif;
+          ?>
           <a class="show-button" href="#">Lihat semua berita...</a>
         </ul>
       </div>
