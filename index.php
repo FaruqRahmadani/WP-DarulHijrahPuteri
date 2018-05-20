@@ -120,14 +120,14 @@
           $query = new WP_Query( array(
             'category_name' => 'Agenda' ,
             'posts_per_page' => 5,
-          ) );
+          ));
           if( $query->have_posts() ):
             while( $query->have_posts() ): $query->the_post();
-            $PostId = get_the_ID();
-            $Waktu  = get_post_meta($PostId, 'Waktu', true);
-            $Tempat = get_post_meta($PostId, 'Tempat', true);
+              $PostId = get_the_ID();
+              $Waktu  = get_post_meta($PostId, 'Waktu', true);
+              $Tempat = get_post_meta($PostId, 'Tempat', true);
           ?>
-          <li class="item-artikel">
+          <li class="item-agenda">
             <h4><a href="<?= the_permalink() ?>"><?= the_title() ?></a></h4>
             <p><?= $Waktu ?></p>
             <p><?= $Tempat ?></p>
@@ -136,7 +136,7 @@
             endwhile;
           else:
           ?>
-          <li class="item-artikel">
+          <li class="item-agenda">
             <h4><a href="#"></a></h4>
             <p>Tidak Ada Agenda Terbaru</p>
           </li>
@@ -151,31 +151,35 @@
       <div id="pengumuman">
         <h2 class="text-center">PENGUMUMAN</h2>
         <ul class="list-pengumuman">
+          <?php
+          $query = new WP_Query( array(
+            'category_name' => 'Pengumuman' ,
+            'posts_per_page' => 5,
+          ));
+          if( $query->have_posts() ):
+            while( $query->have_posts() ): $query->the_post();
+              $PostId = get_the_ID();
+              $Waktu  = get_post_meta($PostId, 'Waktu', true);
+          ?>
           <li class="item-pengumuman">
-            <h4><a href="#">PENGUMUMAN SATU</a></h4>
-            <p>01 Januari 2018</p>
+            <h4><a href="<?= the_permalink() ?>"><?= the_title() ?></a></h4>
+            <p><?= $Waktu ?></p>
           </li>
+          <?php
+            endwhile;
+          else:
+            ?>
           <li class="item-pengumuman">
-            <h4><a href="#">PENGUMUMAN DUA</a></h4>
-            <p>01 Januari 2018</p>
+            <h4><a href="#"></a></h4>
+            <p>Tidak Ada Agenda Terbaru</p>
           </li>
-          <li class="item-pengumuman">
-            <h4><a href="#">PENGUMUMAN TIGA</a></h4>
-            <p>01 Januari 2018</p>
-          </li>
-          <li class="item-pengumuman">
-            <h4><a href="#">PENGUMUMAN EMPAT</a></h4>
-            <p>01 Januari 2018</p>
-          </li>
-          <li class="item-pengumuman">
-            <h4><a href="#">PENGUMUMAN LIMA</a></h4>
-            <p>01 Januari 2018</p>
-          </li>
+          <?php
+          endif;
+          ?>
           <a class="show-button" href="#">Lihat semua pengumuman...</a>
         </ul>
       </div>
     </div>
   </div>
-</div>
 </div>
 <?= get_footer() ?>
