@@ -11,7 +11,7 @@
     'page_menu' => __('Menu Page')
   ));
 
-  function main_menu(){
+  function menu_navbar(){
     if (is_front_page()) {
       $args = array(
         'theme_location'  => 'main_menu',
@@ -35,7 +35,7 @@
         wp_nav_menu($args);
       endif;
       echo '
-      <li><a href="#contact" class="page-scroll">KONTAK</a></li>
+      <li><a href="#kontak" class="page-scroll">KONTAK</a></li>
       ';
     }else{
       $args = array(

@@ -1,6 +1,7 @@
 <?= get_header() ?>
 <div id="main">
   <div class="container">
+    <?= get_search_form() ?>
     <div id="full-artikel">
       <?php
       if( have_posts() ):

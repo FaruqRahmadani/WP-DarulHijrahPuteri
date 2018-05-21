@@ -1,5 +1,5 @@
 <?php wp_footer() ?>
-<div id="contact">
+<div id="kontak">
   <div class="container">
     <h1 class="title text-center">KONTAK</h1>
     <div class="row">

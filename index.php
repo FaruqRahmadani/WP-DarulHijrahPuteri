@@ -1,6 +1,7 @@
 <?= get_header() ?>
 <div id="main">
   <div class="container">
+    <?= get_search_form() ?>
     <div id="slides">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <?php
