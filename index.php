@@ -109,7 +109,7 @@
           <?php
           endif;
           ?>
-          <a class="show-button" href="#">Lihat semua berita...</a>
+          <a class="show-button" href="<?= category_link('Berita') ?>">Lihat semua berita...</a>
         </ul>
       </div>
     </div>
@@ -144,7 +144,7 @@
           <?php
           endif;
           ?>
-          <a class="show-button" href="#">Lihat semua agenda...</a>
+          <a class="show-button" href="<?= category_link('Agenda') ?>">Lihat semua agenda...</a>
         </ul>
       </div>
     </div>
@@ -172,12 +172,12 @@
             ?>
           <li class="item-pengumuman">
             <h4><a href="#"></a></h4>
-            <p>Tidak Ada Agenda Terbaru</p>
+            <p>Tidak Ada Pengumuman Terbaru</p>
           </li>
           <?php
           endif;
           ?>
-          <a class="show-button" href="#">Lihat semua pengumuman...</a>
+          <a class="show-button" href="<?= category_link('Pengumuman') ?>">Lihat semua pengumuman...</a>
         </ul>
       </div>
     </div>

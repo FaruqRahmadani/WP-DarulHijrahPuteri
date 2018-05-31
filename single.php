@@ -3,15 +3,15 @@
   <div class="container">
     <?= get_search_form() ?>
     <div id="full-artikel">
-      <h2 class="title title-no-border"><?= the_title() ?></h2>
+      <h1 class="post-title"><a href="#"><?= the_title() ?></a></h1>
       <?php
       $PostId   = get_the_ID();
       $Category = get_the_category()[0]->name;
       if ($Category != 'Berita'):
       ?>
-        <p>Waktu : <?= get_post_meta($PostId, 'Waktu', true) ?></p>
+        <span class="label label-default">Waktu : <?= get_post_meta($PostId, 'Waktu', true) ?></span>
         <?php if ($Category == 'Agenda'): ?>
-          <p>Tempat : <?= get_post_meta($PostId, 'Tempat', true) ?></p>
+          <span class="label label-default">Tempat : <?= get_post_meta($PostId, 'Tempat', true) ?></span>
       <?php
         endif;
       endif;

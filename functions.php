@@ -56,3 +56,7 @@
       endif;
     }
   }
+
+  function category_link($CatName){
+    return get_category_link(get_cat_ID($CatName));
+  }
