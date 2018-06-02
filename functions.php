@@ -39,20 +39,19 @@
       ';
     }else{
       $args = array(
-        'menu'              => 'page_menu',
-        'theme_location'    => 'page_menu',
-        'depth'             => 2,
-        'container'         => false,
-        'container_class'   => 'collapse navbar-collapse',
-        'container_id'      => 'bs-example-navbar-collapse-1',
-        'menu_class'        => 'nav navbar-nav',
-        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-        'walker'            => new wp_bootstrap_navwalker()
+        'theme_location' => 'page_menu',
+        'depth'          => 2,
+        'container'      => false,
+        'items_wrap'     => '%3$s',
+        'fallback_cb'    => 'wp_bootstrap_navwalker::fallback',
+        'walker'         => new wp_bootstrap_navwalker()
       );
       if ( has_nav_menu( 'page_menu' ) ) :
         wp_nav_menu($args);
       else:
-        echo '<li><a href="'.admin_url().'nav-menus.php" class="page-scroll">ADD MENU</a></li>';
+        echo '
+        <li><a href="'.admin_url().'nav-menus.php" class="page-scroll">ADD MENU</a></li>
+        ';
       endif;
     }
   }
